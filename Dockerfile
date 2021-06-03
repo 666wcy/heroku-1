@@ -3,8 +3,7 @@ FROM ubuntu:20.04
 
 
 
-RUN apt-get install wget -y
-RUN apt-get install git -y
+
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends python3.9 && \
@@ -16,7 +15,8 @@ RUN apt-get update -y && \
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo 'Asia/Shanghai' >/etc/timezone
 
-
+RUN apt-get install wget -y
+RUN apt-get install git -y
 
 RUN apt install tzdata -y
 
