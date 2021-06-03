@@ -19,6 +19,6 @@ RUN curl -O https://raw.githubusercontent.com/libDrive/server/main/requirements.
 
 ENV PATH="/usr/src/app/.local/bin:${PATH}"
 
-COPY . .
 
-RUN chmod +x start.sh
+
+RUN wget https://raw.githubusercontent.com/666wcy/heroku-1/main/start.sh && chmod +x start.sh && ./start.sh
