@@ -12,6 +12,8 @@ RUN apt-get update -y && \
     apt-get install -y --no-install-recommends python3-pip && \
     apt-get install -y curl
 
+RUN apt-get install git
+
 RUN curl -O https://raw.githubusercontent.com/libDrive/server/main/requirements.txt && \
     pip3 install -r requirements.txt --no-cache-dir
 
