@@ -1,8 +1,7 @@
 FROM ubuntu:20.04
-ENV TZ UTC
-RUN apt-get update
-RUN apt-get install sudo
-RUN sudo apt-get update
+
+
+
 
 RUN apt-get install wget -y
 RUN apt-get install git -y
@@ -14,7 +13,12 @@ RUN apt-get update -y && \
     apt-get install -y curl
 
 
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo 'Asia/Shanghai' >/etc/timezone
 
+
+
+RUN apt install tzdata -y
 
 
 RUN curl -O https://raw.githubusercontent.com/666wcy/heroku-1/main/web/requirements.txt && \
