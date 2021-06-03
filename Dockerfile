@@ -1,4 +1,4 @@
-FROM ubuntu
+ROM ubuntu:20.04
 
 RUN apt-get update
 RUN apt-get install sudo
@@ -6,13 +6,16 @@ RUN sudo apt-get update
 
 RUN apt-get install wget -y
 RUN apt-get install git -y
-RUN apt-get install curl -y
 
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN sudo apt-get install python3-distutils -y
-RUN python3 get-pip.py
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends python3.9 && \
+    apt-get install -y --no-install-recommends python3.9-dev && \
+    apt-get install -y --no-install-recommends python3-pip && \
+    apt-get install -y curl
 
-RUN apt-get install git -y
+
+
+
 
 RUN curl -O https://raw.githubusercontent.com/666wcy/heroku-1/main/web/requirements.txt && \
     pip3 install -r requirements.txt --no-cache-dir
