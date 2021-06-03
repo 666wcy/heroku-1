@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-
+ENV TZ UTC
 RUN apt-get update
 RUN apt-get install sudo
 RUN sudo apt-get update
