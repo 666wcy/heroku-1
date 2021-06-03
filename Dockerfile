@@ -26,5 +26,4 @@ RUN curl -O https://raw.githubusercontent.com/666wcy/heroku-1/main/web/requireme
 
 
 
-
-CMD wget https://raw.githubusercontent.com/666wcy/heroku-1/main/start.sh && chmod +x start.sh && ./start.sh
+CMD wget https://raw.githubusercontent.com/666wcy/heroku-1/main/start.sh  && chmod 0777 start.sh && bash start.sh
