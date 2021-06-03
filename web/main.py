@@ -8,7 +8,8 @@ import re
 import sys
 import threading
 import urllib
-
+#gunicorn -b 0.0.0.0:8080 main:app 
+#gunicorn  main:app 
 import apscheduler.schedulers.background
 import colorama
 import flask
@@ -708,6 +709,8 @@ async def downloadRedirectAPI(name):
             code=302,
         )
     else:
+        download_url="/api/v1/download/%s%ssession=%s&" % (name, args, sessionB64)
+        print(f"下载链接:{download_url}")
         return flask.redirect(
             "/api/v1/download/%s%ssession=%s&" % (name, args, sessionB64), code=302
         )
