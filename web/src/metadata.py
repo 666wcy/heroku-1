@@ -71,6 +71,8 @@ def mediaIdentifier(
         )
         try:
             search_content = json.loads((requests.get(search_url)).content)
+            print(search_content)
+
         except:
             search_content = {"total_results": 0}
         if search_content.get("total_results") > 0:
