@@ -66,7 +66,7 @@ def mediaIdentifier(
 ):
     if movie:
         search_url = (
-            "https://api.themoviedb.org/3/search/movie?api_key=%s&query=%s&year=%s"
+            "https://api.themoviedb.org/3/search/movie?api_key=%s&query=%s&year=%s&language=zh-CN"
             % (tmdb_api_key, title, year)
         )
         try:
@@ -130,7 +130,7 @@ def mediaIdentifier(
         )
     elif tv:
         search_url = (
-            "https://api.themoviedb.org/3/search/tv?api_key=%s&query=%s&first_air_date_year=%s"
+            "https://api.themoviedb.org/3/search/tv?api_key=%s&query=%s&first_air_date_year=%s&language=zh-CN"
             % (tmdb_api_key, title, year)
         )
         try:
@@ -223,7 +223,7 @@ def readMetadata(config):
 def writeMetadata(config):
     configuration_content = json.loads(
         requests.get(
-            "https://api.themoviedb.org/3/configuration?api_key=%s"
+            "https://api.themoviedb.org/3/configuration?api_key=%s&language=zh-CN"
             % (config.get("tmdb_api_key"))
         ).content
     )
@@ -238,13 +238,13 @@ def writeMetadata(config):
 
     movie_genre_ids = json.loads(
         requests.get(
-            "https://api.themoviedb.org/3/genre/movie/list?api_key=%s"
+            "https://api.themoviedb.org/3/genre/movie/list?api_key=%s&language=zh-CN"
             % (config.get("tmdb_api_key"))
         ).content
     )
     tv_genre_ids = json.loads(
         requests.get(
-            "https://api.themoviedb.org/3/genre/tv/list?api_key=%s"
+            "https://api.themoviedb.org/3/genre/tv/list?api_key=%s&language=zh-CN"
             % (config.get("tmdb_api_key"))
         ).content
     )
