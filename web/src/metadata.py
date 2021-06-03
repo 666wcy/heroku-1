@@ -2,7 +2,7 @@ import datetime
 import json
 import os
 import re
-
+import sys
 import googleapiclient
 import requests
 
@@ -135,6 +135,8 @@ def mediaIdentifier(
         )
         try:
             search_content = json.loads((requests.get(search_url)).content)
+            print(search_content)
+            sys.stdout.flush()
         except:
             search_content = {"total_results": 0}
         if search_content.get("total_results") > 0:
