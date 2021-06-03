@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /usr/src/app
+
 
 
 
@@ -8,11 +8,9 @@ cd /usr/src/app
 
 git clone https://github.com/666wcy/heroku-1
 chmod 0777 /usr/src/app/heroku-1/web/ -R
-mv /usr/src/app/heroku-1/web/* /usr/src/app
+mv /heroku-1/web/* /
 
-rm -rf /usr/src/app/heroku-1
+rm -rf /heroku-1
 
-
-pip3 install -r requirements.txt -q --no-cache-dir
 
 gunicorn main:app
